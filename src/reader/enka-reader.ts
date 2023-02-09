@@ -1,8 +1,29 @@
-import { IEnka } from "../interfaces/enka/enka";
+import { from, map } from 'rxjs'
+import { Observable } from "rxjs/internal/Observable";
+import { PlayerData } from "enkanetwork.js/dist/structs";
+import { convertName } from '../converters/name-converter';
+
+const { Wrapper } = require('enkanetwork.js')
+
+const { AssetFinder } = require('enkanetwork.js')
 
 export class EnkaReader {
-    
-    public getCharactersID(enkaObj: IEnka) {
-        console.log(enkaObj.avatarInfoList.map(char => char.avatarId));
+    private static EnkaWrapper = new Wrapper({
+        cache: false
+    });
+
+    private static Finder = new AssetFinder()
+
+    constructor() {
+    }
+
+    public getPlayerData(uid: number): Observable<PlayerData> {
+        return from(EnkaReader.EnkaWrapper.getPlayer(uid)) as Observable<PlayerData>
+    }
+
+    public getNameByHash(nameTextMapHash: string): string {
+        return convertName(EnkaReader.Finder.hash(nameTextMapHash).value)
     }
 }
+
+

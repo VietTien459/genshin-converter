@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint . --fix"
+    "lint": "eslint . --fix",
+    "start": "npx tsc && node ./dist/main.js",
+    "doc": "npx typedoc src/main.ts"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +17,11 @@
     "@typescript-eslint/eslint-plugin": "^5.50.0",
     "@typescript-eslint/parser": "^5.50.0",
     "eslint": "^8.33.0",
+    "typedoc": "^0.23.24",
     "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "enkanetwork.js": "^2.0.2",
+    "rxjs": "^7.8.0"
   }
 }
