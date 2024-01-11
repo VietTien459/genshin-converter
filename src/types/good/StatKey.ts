@@ -1,4 +1,4 @@
-type StatKey
+export type StatKey
   = "hp" //HP
   | "hp_" //HP%
   | "atk" //ATK

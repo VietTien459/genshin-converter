@@ -1,4 +1,6 @@
-interface ICharacter {
+import {CharacterKey} from "../../types/good/CharacterKey";
+
+export interface ICharacter {
   key: CharacterKey //e.g. "Rosaria"
   level: number //1-90 inclusive
   constellation: number //0-6 inclusive

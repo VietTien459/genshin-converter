@@ -1,4 +1,8 @@
-interface IArtifact {
+import {CharacterKey} from "../../types/good/CharacterKey";
+import {StatKey} from "../../types/good/StatKey";
+import {ArtifactSetKey} from "../../types/good/ArtifactsSetKey";
+
+export interface IArtifact {
   setKey: ArtifactSetKey //e.g. "GladiatorsFinale"
   slotKey: SlotKey //e.g. "plume"
   level: number //0-20 inclusive
@@ -9,9 +13,9 @@ interface IArtifact {
   substats: ISubstat[]
 }
 
-interface ISubstat {
+export interface ISubstat {
   key: StatKey //e.g. "critDMG_"
   value: number //e.g. 19.4
 }
 
-type SlotKey = "flower" | "plume" | "sands" | "goblet" | "circlet"
+export type SlotKey = "flower" | "plume" | "sands" | "goblet" | "circlet"

@@ -1,4 +1,4 @@
-type WeaponKey
+export type WeaponKey
   = "AThousandFloatingDreams" //Mille rêves flottants
   | "Akuoumaru" //Akuoumaru
   | "AlleyHunter" //Traqueur des impasses

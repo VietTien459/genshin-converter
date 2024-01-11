@@ -1,4 +1,4 @@
-type ArtifactSetKey
+export type ArtifactSetKey
   = "Adventurer" //Aventurier
   | "ArchaicPetra" //Roche ancienne
   | "Berserker" //Berserker

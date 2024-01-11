@@ -1,26 +1,27 @@
-import { PlayerData, Weapon } from "enkanetwork.js/dist/structs";
-import { filter, finalize, map, tap } from "rxjs";
-import { EnkaReader } from "./reader/enka-reader"
-import { convertCharacter } from "./converters/character-converter";
-import { convertWeapon } from "./converters/weapon-converter";
-import { convertArtifact } from "./converters/artifact-converter";
-import { GoodConverter } from "./converters/good-converter";
+import {filter, from, map, tap} from "rxjs";
+import {GoodConverter} from "./converters/good-converter";
 
-let enkaReader = new EnkaReader()
+import fs from "fs";
+import {Wrapper} from "enkanetwork.js";
 
-let goodConverter = new GoodConverter()
+const {genshin} = new Wrapper();
 
-var fs = require('fs');
-
-
-enkaReader.getPlayerData(709445677)
-  .pipe(
-    filter(r => r != null),
-    map(goodConverter.convertToGOOD),
-    tap((data)=>{
-      fs.writeFile('target/player-data.json', JSON.stringify(data), 'utf8', () => {console.log("Done")})
-    })
-  ).subscribe()
+const goodConverter = new GoodConverter()
+from(genshin.getPlayer(709445677))
+    .pipe(
+        filter(r => r != null),
+        map(goodConverter.convertToGOOD),
+        tap((data) => {
+            fs.writeFile('target/player-data.json', JSON.stringify(data), 'utf8', (err) => {
+                if (err) {
+                    console.error("Error writing file:", err);
+                } else {
+                    console.log("Done");
+                }
+            })
+        })
+    )
+    .subscribe()
 
 
 

@@ -1,4 +1,6 @@
 import { ConvertMap } from "../utils/ConvertMap";
+import {StatKey} from "../types/good/StatKey";
+import {SlotKey} from "../interfaces/good/artifact";
 
 export const StatConvertMap = new ConvertMap<string, StatKey>(
     [

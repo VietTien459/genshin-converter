@@ -1,11 +1,11 @@
-import { from, map } from 'rxjs'
-import { Observable } from "rxjs/internal/Observable";
-import { PlayerData } from "enkanetwork.js/dist/structs";
-import { convertName } from '../converters/name-converter';
+import {from} from 'rxjs'
+import {Observable} from "rxjs/internal/Observable";
+import {PlayerData} from "enkanetwork.js/dist/structs";
+import {convertName} from '../converters/name-converter';
 
-const { Wrapper } = require('enkanetwork.js')
+const {Wrapper} = require('enkanetwork.js')
 
-const { AssetFinder } = require('enkanetwork.js')
+const {AssetFinder} = require('enkanetwork.js')
 
 export class EnkaReader {
     private static EnkaWrapper = new Wrapper({
@@ -13,9 +13,6 @@ export class EnkaReader {
     });
 
     private static Finder = new AssetFinder()
-
-    constructor() {
-    }
 
     public getPlayerData(uid: number): Observable<PlayerData> {
         return from(EnkaReader.EnkaWrapper.getPlayer(uid)) as Observable<PlayerData>

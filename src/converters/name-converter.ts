@@ -4,7 +4,7 @@ export function convertName(equipmentName: string) {
         .split(' ')
         .map(word => word.charAt(0).toUpperCase() + word.slice(1))
         .join('')
-        .replaceAll(/[ \'\"]/g, '')
+        .replaceAll(/[ '\"]/g, '')
 
 }
 

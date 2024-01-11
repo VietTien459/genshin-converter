@@ -1,5 +1,7 @@
 import { Characters } from "enkanetwork.js/dist/structs";
 import { convertName } from "./name-converter";
+import {ICharacter} from "../interfaces/good/character";
+import {CharacterKey} from "../types/good/CharacterKey";
 
 export function convertCharacter(character: Characters): ICharacter {
     return {

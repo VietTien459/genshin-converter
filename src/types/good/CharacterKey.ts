@@ -1,4 +1,4 @@
-type CharacterKey
+export type CharacterKey
   = "Albedo" //Albedo
   | "Alhaitham" //Alhaitham
   | "Aloy" //Aloy
